@@ -10,6 +10,8 @@
 		FA29CC3C265F951500008034 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA29CC3B265F951500008034 /* Kingfisher */; };
 		FA29CC52265FA3D100008034 /* DiscoverProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29CC51265FA3D100008034 /* DiscoverProductsViewController.swift */; };
 		FA29CC58265FA84400008034 /* RxWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = FA29CC57265FA84400008034 /* RxWrapper */; };
+		FA29CC5B265FD31700008034 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FA29CC5A265FD31700008034 /* PKHUD */; };
+		FA29CC5E265FD6F900008034 /* SwiftFormat in Frameworks */ = {isa = PBXBuildFile; productRef = FA29CC5D265FD6F900008034 /* SwiftFormat */; };
 		FA3D59C1265EFD3C00210BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D59C0265EFD3C00210BA6 /* AppDelegate.swift */; };
 		FA3D59CA265EFD3F00210BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3D59C9265EFD3F00210BA6 /* Assets.xcassets */; };
 		FA3D59CD265EFD3F00210BA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3D59CB265EFD3F00210BA6 /* LaunchScreen.storyboard */; };
@@ -54,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA29CC5B265FD31700008034 /* PKHUD in Frameworks */,
+				FA29CC5E265FD6F900008034 /* SwiftFormat in Frameworks */,
 				FA29CC58265FA84400008034 /* RxWrapper in Frameworks */,
 				FA29CC3C265F951500008034 /* Kingfisher in Frameworks */,
 			);
@@ -169,6 +173,8 @@
 			packageProductDependencies = (
 				FA29CC3B265F951500008034 /* Kingfisher */,
 				FA29CC57265FA84400008034 /* RxWrapper */,
+				FA29CC5A265FD31700008034 /* PKHUD */,
+				FA29CC5D265FD6F900008034 /* SwiftFormat */,
 			);
 			productName = Adichallenge;
 			productReference = FA3D59BD265EFD3C00210BA6 /* Adichallenge.app */;
@@ -181,6 +187,7 @@
 				FA3D59CF265EFD3F00210BA6 /* Sources */,
 				FA3D59D0265EFD3F00210BA6 /* Frameworks */,
 				FA3D59D1265EFD3F00210BA6 /* Resources */,
+				FA29CC5F265FD70200008034 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -243,6 +250,8 @@
 			mainGroup = FA3D59B4265EFD3C00210BA6;
 			packageReferences = (
 				FA29CC3A265F951500008034 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FA29CC59265FD31700008034 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				FA29CC5C265FD6F900008034 /* XCRemoteSwiftPackageReference "SwiftFormat" */,
 			);
 			productRefGroup = FA3D59BE265EFD3C00210BA6 /* Products */;
 			projectDirPath = "";
@@ -280,6 +289,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FA29CC5F265FD70200008034 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=macosx\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT/Adichallenge\" \\\n    --enable isEmpty \\\n    --disable trailingCommas \\\n    --disable blankLinesAroundMark \\\n    --disable unusedArguments \\\n    --disable wrap, wrapMultilineStatementBraces, wrapSwitchCases \\\n    --disable initCoderUnavailable \\\n    --disable numberFormatting \\\n    --disable sortedImports\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA3D59B9265EFD3C00210BA6 /* Sources */ = {
@@ -626,6 +655,22 @@
 				minimumVersion = 6.3.0;
 			};
 		};
+		FA29CC59265FD31700008034 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		FA29CC5C265FD6F900008034 /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.48.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -637,6 +682,16 @@
 		FA29CC57265FA84400008034 /* RxWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RxWrapper;
+		};
+		FA29CC5A265FD31700008034 /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA29CC59265FD31700008034 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
+		FA29CC5D265FD6F900008034 /* SwiftFormat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA29CC5C265FD6F900008034 /* XCRemoteSwiftPackageReference "SwiftFormat" */;
+			productName = SwiftFormat;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

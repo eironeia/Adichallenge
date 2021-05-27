@@ -11,12 +11,30 @@
         }
       },
       {
+        "package": "PKHUD",
+        "repositoryURL": "https://github.com/pkluz/PKHUD",
+        "state": {
+          "branch": null,
+          "revision": "8fd26f23057c6bebd6695524b1c3e05e93aba571",
+          "version": "5.4.0"
+        }
+      },
+      {
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
         "state": {
           "branch": null,
           "revision": "7c17a6ccca06b5c107cfa4284e634562ddaf5951",
           "version": "6.2.0"
+        }
+      },
+      {
+        "package": "SwiftFormat",
+        "repositoryURL": "https://github.com/nicklockwood/SwiftFormat",
+        "state": {
+          "branch": null,
+          "revision": "d02a0f61af57e88c65813cc1f6509ce69e1612bf",
+          "version": "0.48.3"
         }
       }
     ]
