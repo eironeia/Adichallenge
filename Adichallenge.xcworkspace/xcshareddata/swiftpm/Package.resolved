@@ -27,15 +27,6 @@
           "revision": "7c17a6ccca06b5c107cfa4284e634562ddaf5951",
           "version": "6.2.0"
         }
-      },
-      {
-        "package": "SwiftFormat",
-        "repositoryURL": "https://github.com/nicklockwood/SwiftFormat",
-        "state": {
-          "branch": null,
-          "revision": "d02a0f61af57e88c65813cc1f6509ce69e1612bf",
-          "version": "0.48.3"
-        }
       }
     ]
   },

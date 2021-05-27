@@ -14,14 +14,19 @@ protocol DiscoverProductsViewModelInterface {
 struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
     struct Input {
         let fetchProducts: Observable<Void>
+        let selectedProduct: Observable<String>
     }
 
     struct Output {
+        let isLoading: Observable<Bool>
         let products: Observable<[DiscoverProductUIModel]>
     }
 
     func transform(input: Input) -> Output {
-        .init(products: .empty())
+        .init(
+            isLoading: .empty(),
+            products: .empty()
+        )
     }
 }
 
@@ -29,6 +34,7 @@ final class DiscoverProductsViewController: UITableViewController {
     private var products: [DiscoverProductUIModel] = []
     private let viewModel: DiscoverProductsViewModelInterface
     private let fetchProductsSubject = PublishSubject<Void>()
+    private let selectedProductSubject = PublishSubject<String>()
     private lazy var disposeBag = DisposeBag()
 
     init(viewModel: DiscoverProductsViewModelInterface) {
@@ -54,10 +60,10 @@ private extension DiscoverProductsViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .white
-//        tableView.register(
-//            AlbumTitleCell.self,
-//            forCellReuseIdentifier: AlbumTitleCell.identifier
-//        )
+        tableView.register(
+            DiscoverProductCell.self,
+            forCellReuseIdentifier: DiscoverProductCell.identifier
+        )
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(
             self,
@@ -67,10 +73,72 @@ private extension DiscoverProductsViewController {
     }
 
     func setupEvents() {
-        let output = viewModel
-            .transform(input: .init(fetchProducts: fetchProductsSubject))
+        let output = viewModel.transform(
+            input:
+            .init(
+                fetchProducts: fetchProductsSubject,
+                selectedProduct: selectedProductSubject
+            )
+        )
 
-//        output.products.asDriv
+        output
+            .isLoading
+            .asDriverOnErrorJustComplete()
+            .drive(onNext: { [weak self] isLoading in
+                self?.handle(isLoading: isLoading)
+            })
+            .disposed(by: disposeBag)
+
+        output
+            .products
+            .asDriverOnErrorJustComplete()
+            .drive(onNext: { [weak self] products in
+                self?.handle(discoverProducts: products)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    func handle(discoverProducts: [DiscoverProductUIModel]) {
+        products = discoverProducts
+        tableView.reloadData()
+    }
+
+    func handle(isLoading: Bool) {
+        isLoading
+            ? HUD.show(.progress)
+            : HUD.hide()
+    }
+}
+
+// MARK: - Datasource
+
+extension DiscoverProductsViewController {
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        return products.count
+    }
+
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.cell(as: DiscoverProductCell.self)
+        let productUIModel = products[indexPath.row]
+        cell.setup(uiModel: productUIModel)
+        return cell
+    }
+}
+
+// MARK: - Delegate
+
+extension DiscoverProductsViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+//        let productId = products[indexPath.row].id
+        #warning("Set id properly")
+        selectedProductSubject.onNext("id")
     }
 
     @objc

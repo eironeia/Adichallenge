@@ -4,6 +4,16 @@
    <FileRef
       location = "group:Adichallenge.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:Adichallenge/Scenes/DiscoverProducts/../../../AdichallengeTests"
+      name = "AdichallengeTests">
+      <FileRef
+         location = "group:AdichallengeTests/AdichallengeTests.swift">
+      </FileRef>
+      <FileRef
+         location = "group:AdichallengeTests/Info.plist">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:RxWrapper">
    </FileRef>
