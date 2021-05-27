@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let viewController = factory.makeDiscoverGymsViewController()
 //        let navigationController = UINavigationController(rootViewController: viewController)
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController() //navigationController
+        window?.rootViewController = DiscoverProductsViewController() //navigationController
         window?.makeKeyAndVisible()
          return true
      }

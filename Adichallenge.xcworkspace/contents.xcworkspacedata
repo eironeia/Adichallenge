@@ -4,4 +4,7 @@
    <FileRef
       location = "group:Adichallenge.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:RxWrapper">
+   </FileRef>
 </Workspace>
