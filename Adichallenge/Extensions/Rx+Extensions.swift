@@ -29,9 +29,30 @@ extension ObservableType {
         map { _ in }
     }
 
+    func startLoading(loadingSubject: PublishSubject<Bool>) -> Observable<Element> {
+        self
+            .do(onNext: { _ in loadingSubject.onNext(true) })
+    }
+
     func stopLoading(loadingSubject: PublishSubject<Bool>) -> Observable<Element> {
         self
             .do(onNext: { _ in loadingSubject.onNext(false) },
                 onError: { _ in loadingSubject.onNext(false) })
+    }
+}
+
+extension ObservableType {
+    static func createFromResultCallback<E: Error>(_ fn: @escaping (@escaping (Result<Element, E>) -> Void) -> ()) -> Observable<Element> {
+        return Observable.create { observer in
+            fn { result in
+                switch result {
+                case .success(let value):
+                    observer.onNext(value)
+                case .failure(let error):
+                    observer.onError(error)
+                }
+            }
+            return Disposables.create()
+        }
     }
 }

@@ -23,6 +23,10 @@ final class DiscoverProductsViewController: UITableViewController {
         super.viewDidLoad()
         setupUI()
         setupEvents()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchProductsSubject.onNext(())
     }
 }
@@ -78,7 +82,7 @@ private extension DiscoverProductsViewController {
 
     func handle(isLoading: Bool) {
         isLoading
-            ? HUD.show(.progress)
+            ? HUD.show(.progress, onView: view)
             : HUD.hide()
     }
 }

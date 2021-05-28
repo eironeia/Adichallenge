@@ -1,18 +1,18 @@
 import Foundation
 
 public struct Product: Codable {
-    let id: String
-    let imageURL: String
-    let name: String
-    let description: String
-    let price: Double
-    let currency: String
+    public let id: String
+    public let imageURL: String
+    public let name: String
+    public let description: String
+    public let price: Double
+    public let currency: String
 
     enum CodingKeys: String, CodingKey {
         case id
-        case imageURL = "imgURL"
+        case imageURL = "imgUrl"
         case name
-        case description = "productDescription"
+        case description
         case price
         case currency
     }

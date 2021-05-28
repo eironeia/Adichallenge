@@ -1,13 +1,8 @@
-//
-//  AppDelegate.swift
-//  Adichallenge
-//
-//  Created by Alex Cuello on 27/05/2021.
-//
-
 import UIKit
 
-import UIKit
+// TODO: Remove
+import Domain
+import Network
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let viewController = factory.makeDiscoverGymsViewController()
 //        let navigationController = UINavigationController(rootViewController: viewController)
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = DiscoverProductsViewController(viewModel: DiscoverProductsViewModel()) // navigationController
+        window?.rootViewController = DiscoverProductsViewController(viewModel: DiscoverProductsViewModel(useCase: ProductsUseCase(productsProvider: ProductsProvider()))) // navigationController
         window?.makeKeyAndVisible()
         return true
     }
