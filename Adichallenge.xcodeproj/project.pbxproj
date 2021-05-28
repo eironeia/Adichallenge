@@ -24,6 +24,7 @@
 		FA52861B2660D64B00A326F6 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = FA52861A2660D64B00A326F6 /* Domain */; };
 		FA52861D2660D64B00A326F6 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = FA52861C2660D64B00A326F6 /* Network */; };
 		FA5286212660F01F00A326F6 /* DiscoverProductsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5286202660F01F00A326F6 /* DiscoverProductsViewModelTests.swift */; };
+		FABFF29A2661018800403D9C /* RxWrapperTests in Frameworks */ = {isa = PBXBuildFile; productRef = FABFF2992661018800403D9C /* RxWrapperTests */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FABFF29A2661018800403D9C /* RxWrapperTests in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +216,7 @@
 			);
 			name = AdichallengeTests;
 			packageProductDependencies = (
+				FABFF2992661018800403D9C /* RxWrapperTests */,
 			);
 			productName = AdichallengeTests;
 			productReference = FA29CC86265FE00F00008034 /* AdichallengeTests.xctest */;
@@ -623,6 +626,10 @@
 		FA52861C2660D64B00A326F6 /* Network */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Network;
+		};
+		FABFF2992661018800403D9C /* RxWrapperTests */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RxWrapperTests;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

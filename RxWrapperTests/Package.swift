@@ -2,9 +2,9 @@
 import PackageDescription
 
 let package = Package(
-  name: "RxWrapper",
+  name: "RxWrapperTests",
   products: [
-    .library(name: "RxWrapper", targets: ["RxWrapper"]),
+    .library(name: "RxWrapperTests", targets: ["RxWrapperTests"]),
   ],
   dependencies: [
     .package(
@@ -14,8 +14,8 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "RxWrapper",
-      dependencies: ["RxSwift" , "RxCocoa"]
+      name: "RxWrapperTests",
+      dependencies: ["RxSwift" , "RxCocoa", "RxTest"]
     )
   ]
 )

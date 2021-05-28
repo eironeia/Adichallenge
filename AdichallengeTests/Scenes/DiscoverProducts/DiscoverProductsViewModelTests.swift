@@ -29,7 +29,12 @@ class DiscoverProductsViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         productsUseCase = MockProductsUseCase()
+        fetchProductsSubject = PublishSubject<Void>()
+        selectedProductSubject = PublishSubject<String>()
         scheduler = TestScheduler(initialClock: 0)
+        isLoadingObserver = scheduler.createObserver(Bool.self)
+        selectedProductObserver = scheduler.createObserver(String.self)
+        productsObserver = scheduler.createObserver([DiscoverProductUIModel].self)
         disposeBag = DisposeBag()
         sut = DiscoverProductsViewModel(useCase: productsUseCase)
     }
@@ -43,8 +48,6 @@ class DiscoverProductsViewModelTests: XCTestCase {
     }
 
     func test_whenFetchProductsEvent() {
-        let fetchProductsSubject = PublishSubject<Void>()
-
         let product = Product(
             id: "id",
             imageURL: "https://www.google.com",
@@ -53,22 +56,16 @@ class DiscoverProductsViewModelTests: XCTestCase {
             price: 1,
             currency: "$"
         )
-
         let expectedUIModel = DiscoverProductUIModel(product: product)
         productsUseCase.getProductsResult = .success([product])
 
         bindSchedulers(fetchProductsEvent: [.next(10, ())])
 
-        let output = sut
-            .transform(
-                input:
-                    .init(
-                        fetchProducts: fetchProductsSubject,
-                        selectedProduct: .empty()
-                    )
-            )
+        let input = createInput(fetchProducts: fetchProductsSubject)
+        let output = sut.transform(input: input)
 
         subscribeOutput(output: output)
+        scheduler.start()
 
         XCTAssertEqual(
             isLoadingObserver.events,
@@ -78,15 +75,7 @@ class DiscoverProductsViewModelTests: XCTestCase {
             ]
         )
 
-//        XCTAssertEqual(
-//            productsObserver.events,
-//            [
-//                .next(10,    [expectedUIModel])
-//            ]
-//        )
-
-
-        scheduler.start()
+        XCTAssertEqual(productsObserver.events, [.next(10, [expectedUIModel])])
     }
 }
 
@@ -119,11 +108,11 @@ private extension DiscoverProductsViewModelTests {
             .drive(productsObserver)
             .disposed(by: disposeBag)
     }
-}
 
-
-extension Product: Equatable {
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.id == rhs.id
+    func createInput(
+        fetchProducts: Observable<Void> = .empty(),
+        selectedProduct: Observable<String> = .empty()
+    ) -> DiscoverProductsViewModel.Input {
+        .init(fetchProducts: fetchProducts, selectedProduct: selectedProduct)
     }
 }

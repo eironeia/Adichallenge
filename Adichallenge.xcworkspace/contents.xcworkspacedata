@@ -5,12 +5,15 @@
       location = "group:Adichallenge.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:RxWrapper">
-   </FileRef>
-   <FileRef
       location = "group:Domain">
    </FileRef>
    <FileRef
       location = "group:Network">
+   </FileRef>
+   <FileRef
+      location = "group:RxWrapper">
+   </FileRef>
+   <FileRef
+      location = "group:RxWrapperTests">
    </FileRef>
 </Workspace>

@@ -1,7 +1,7 @@
 import Foundation
 import Domain
 
-struct DiscoverProductUIModel {
+struct DiscoverProductUIModel: Equatable {
     let id: String
     let imageURL: String
     let name: String
