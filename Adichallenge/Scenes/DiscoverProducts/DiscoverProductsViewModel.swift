@@ -21,6 +21,7 @@ struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
     }
 
     let useCase: ProductsUseCaseInterface
+    let onSelectedProduct: (Product) -> Void
     private let isLoadingSubject = PublishSubject<Bool>()
     private let products = BehaviorSubject<[Product]>(value: [])
 
@@ -47,9 +48,7 @@ struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
                 }
                 return product
             })
-            .do(onNext: { product in
-                print(product)
-            })
+            .do(onNext: onSelectedProduct)
             .mapToVoid()
 
 

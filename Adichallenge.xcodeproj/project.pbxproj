@@ -26,6 +26,7 @@
 		FA5286212660F01F00A326F6 /* DiscoverProductsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5286202660F01F00A326F6 /* DiscoverProductsViewModelTests.swift */; };
 		FABFF29A2661018800403D9C /* RxWrapperTests in Frameworks */ = {isa = PBXBuildFile; productRef = FABFF2992661018800403D9C /* RxWrapperTests */; };
 		FABFF29D26611A0700403D9C /* DiscoverProductsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF29C26611A0700403D9C /* DiscoverProductsFactory.swift */; };
+		FABFF29F26611C6A00403D9C /* DiscoverProductsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF29E26611C6A00403D9C /* DiscoverProductsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		FA3D59CE265EFD3F00210BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5286202660F01F00A326F6 /* DiscoverProductsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProductsViewModelTests.swift; sourceTree = "<group>"; };
 		FABFF29C26611A0700403D9C /* DiscoverProductsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProductsFactory.swift; sourceTree = "<group>"; };
+		FABFF29E26611C6A00403D9C /* DiscoverProductsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProductsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				FA29CC902660CDCB00008034 /* UIModels */,
 				FA29CC69265FDD3E00008034 /* Cells */,
+				FABFF29E26611C6A00403D9C /* DiscoverProductsCoordinator.swift */,
 				FA29CC6C265FDE6900008034 /* DiscoverProductsViewModel.swift */,
 				FA29CC51265FA3D100008034 /* DiscoverProductsViewController.swift */,
 			);
@@ -336,6 +339,7 @@
 				FABFF29D26611A0700403D9C /* DiscoverProductsFactory.swift in Sources */,
 				FA29CC66265FDD0600008034 /* Array+Extension.swift in Sources */,
 				FA3D59C1265EFD3C00210BA6 /* AppDelegate.swift in Sources */,
+				FABFF29F26611C6A00403D9C /* DiscoverProductsCoordinator.swift in Sources */,
 				FA29CC52265FA3D100008034 /* DiscoverProductsViewController.swift in Sources */,
 				FA29CC6B265FDD4A00008034 /* DiscoverProductCell.swift in Sources */,
 				FA29CC922660CDD400008034 /* DiscoverProductUIModel.swift in Sources */,
