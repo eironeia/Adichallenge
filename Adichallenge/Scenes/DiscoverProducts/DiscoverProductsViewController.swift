@@ -33,7 +33,7 @@ final class DiscoverProductsViewController: UITableViewController {
 
 private extension DiscoverProductsViewController {
     func setupUI() {
-        title = "Albums"
+        title = "Adidas products"
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .white

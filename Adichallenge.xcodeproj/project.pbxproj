@@ -25,6 +25,7 @@
 		FA52861D2660D64B00A326F6 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = FA52861C2660D64B00A326F6 /* Network */; };
 		FA5286212660F01F00A326F6 /* DiscoverProductsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5286202660F01F00A326F6 /* DiscoverProductsViewModelTests.swift */; };
 		FABFF29A2661018800403D9C /* RxWrapperTests in Frameworks */ = {isa = PBXBuildFile; productRef = FABFF2992661018800403D9C /* RxWrapperTests */; };
+		FABFF29D26611A0700403D9C /* DiscoverProductsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF29C26611A0700403D9C /* DiscoverProductsFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		FA3D59CC265EFD3F00210BA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA3D59CE265EFD3F00210BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5286202660F01F00A326F6 /* DiscoverProductsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProductsViewModelTests.swift; sourceTree = "<group>"; };
+		FABFF29C26611A0700403D9C /* DiscoverProductsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProductsFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				FA3D59CB265EFD3F00210BA6 /* LaunchScreen.storyboard */,
 				FA3D59CE265EFD3F00210BA6 /* Info.plist */,
 				FA29CC60265FDA0D00008034 /* Extensions */,
+				FABFF29B266119F000403D9C /* Factories */,
 				FA29CC4F265FA32F00008034 /* Scenes */,
 			);
 			path = Adichallenge;
@@ -196,6 +199,14 @@
 			children = (
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FABFF29B266119F000403D9C /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				FABFF29C26611A0700403D9C /* DiscoverProductsFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +333,7 @@
 				FA29CC68265FDD2900008034 /* UIView+Extension.swift in Sources */,
 				FA29CC6D265FDE6900008034 /* DiscoverProductsViewModel.swift in Sources */,
 				FA29CC62265FDA1800008034 /* Rx+Extensions.swift in Sources */,
+				FABFF29D26611A0700403D9C /* DiscoverProductsFactory.swift in Sources */,
 				FA29CC66265FDD0600008034 /* Array+Extension.swift in Sources */,
 				FA3D59C1265EFD3C00210BA6 /* AppDelegate.swift in Sources */,
 				FA29CC52265FA3D100008034 /* DiscoverProductsViewController.swift in Sources */,
