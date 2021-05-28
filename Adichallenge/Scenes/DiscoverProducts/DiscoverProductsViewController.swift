@@ -73,6 +73,12 @@ private extension DiscoverProductsViewController {
                 self?.handle(discoverProducts: products)
             })
             .disposed(by: disposeBag)
+
+        output
+            .idle
+            .asDriverOnErrorJustComplete()
+            .drive()
+            .disposed(by: disposeBag)
     }
 
     func handle(discoverProducts: [DiscoverProductUIModel]) {
