@@ -3,33 +3,6 @@ import RxSwift
 import RxCocoa
 import PKHUD
 
-struct DiscoverProductUIModel {}
-
-protocol DiscoverProductsViewModelInterface {
-    func transform(
-        input: DiscoverProductsViewModel.Input
-    ) -> DiscoverProductsViewModel.Output
-}
-
-struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
-    struct Input {
-        let fetchProducts: Observable<Void>
-        let selectedProduct: Observable<String>
-    }
-
-    struct Output {
-        let isLoading: Observable<Bool>
-        let products: Observable<[DiscoverProductUIModel]>
-    }
-
-    func transform(input: Input) -> Output {
-        .init(
-            isLoading: .empty(),
-            products: .empty()
-        )
-    }
-}
-
 final class DiscoverProductsViewController: UITableViewController {
     private var products: [DiscoverProductUIModel] = []
     private let viewModel: DiscoverProductsViewModelInterface
@@ -136,9 +109,8 @@ extension DiscoverProductsViewController {
 extension DiscoverProductsViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-//        let productId = products[indexPath.row].id
-        #warning("Set id properly")
-        selectedProductSubject.onNext("id")
+        let productId = products[indexPath.row].id
+        selectedProductSubject.onNext(productId)
     }
 
     @objc

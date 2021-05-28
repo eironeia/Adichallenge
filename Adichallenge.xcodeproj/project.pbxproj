@@ -17,14 +17,17 @@
 		FA29CC68265FDD2900008034 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29CC67265FDD2900008034 /* UIView+Extension.swift */; };
 		FA29CC6B265FDD4A00008034 /* DiscoverProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29CC6A265FDD4A00008034 /* DiscoverProductCell.swift */; };
 		FA29CC6D265FDE6900008034 /* DiscoverProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29CC6C265FDE6900008034 /* DiscoverProductsViewModel.swift */; };
+		FA29CC89265FE00F00008034 /* AdichallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29CC88265FE00F00008034 /* AdichallengeTests.swift */; };
+		FA29CC922660CDD400008034 /* DiscoverProductUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29CC912660CDD400008034 /* DiscoverProductUIModel.swift */; };
 		FA3D59C1265EFD3C00210BA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D59C0265EFD3C00210BA6 /* AppDelegate.swift */; };
 		FA3D59CA265EFD3F00210BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3D59C9265EFD3F00210BA6 /* Assets.xcassets */; };
 		FA3D59CD265EFD3F00210BA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3D59CB265EFD3F00210BA6 /* LaunchScreen.storyboard */; };
-		FA3D59D8265EFD3F00210BA6 /* AdichallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D59D7265EFD3F00210BA6 /* AdichallengeTests.swift */; };
+		FA52861B2660D64B00A326F6 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = FA52861A2660D64B00A326F6 /* Domain */; };
+		FA52861D2660D64B00A326F6 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = FA52861C2660D64B00A326F6 /* Network */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FA3D59D4265EFD3F00210BA6 /* PBXContainerItemProxy */ = {
+		FA29CC8B265FE00F00008034 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA3D59B5265EFD3C00210BA6 /* Project object */;
 			proxyType = 1;
@@ -41,31 +44,34 @@
 		FA29CC67265FDD2900008034 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		FA29CC6A265FDD4A00008034 /* DiscoverProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProductCell.swift; sourceTree = "<group>"; };
 		FA29CC6C265FDE6900008034 /* DiscoverProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProductsViewModel.swift; sourceTree = "<group>"; };
+		FA29CC86265FE00F00008034 /* AdichallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdichallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA29CC88265FE00F00008034 /* AdichallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdichallengeTests.swift; sourceTree = "<group>"; };
+		FA29CC8A265FE00F00008034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA29CC912660CDD400008034 /* DiscoverProductUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverProductUIModel.swift; sourceTree = "<group>"; };
 		FA3D59BD265EFD3C00210BA6 /* Adichallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adichallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3D59C0265EFD3C00210BA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA3D59C9265EFD3F00210BA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA3D59CC265EFD3F00210BA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA3D59CE265EFD3F00210BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA3D59D3265EFD3F00210BA6 /* AdichallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdichallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA3D59D7265EFD3F00210BA6 /* AdichallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdichallengeTests.swift; sourceTree = "<group>"; };
-		FA3D59D9265EFD3F00210BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA29CC83265FE00F00008034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA3D59BA265EFD3C00210BA6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FA29CC5B265FD31700008034 /* PKHUD in Frameworks */,
 				FA29CC58265FA84400008034 /* RxWrapper in Frameworks */,
+				FA52861B2660D64B00A326F6 /* Domain in Frameworks */,
 				FA29CC3C265F951500008034 /* Kingfisher in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA3D59D0265EFD3F00210BA6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				FA52861D2660D64B00A326F6 /* Network in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,10 +89,10 @@
 		FA29CC50265FA3C000008034 /* DiscoverProducts */ = {
 			isa = PBXGroup;
 			children = (
+				FA29CC902660CDCB00008034 /* UIModels */,
 				FA29CC69265FDD3E00008034 /* Cells */,
-				FA3D59D6265EFD3F00210BA6 /* AdichallengeTests */,
-				FA29CC51265FA3D100008034 /* DiscoverProductsViewController.swift */,
 				FA29CC6C265FDE6900008034 /* DiscoverProductsViewModel.swift */,
+				FA29CC51265FA3D100008034 /* DiscoverProductsViewController.swift */,
 			);
 			path = DiscoverProducts;
 			sourceTree = "<group>";
@@ -117,10 +123,28 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		FA29CC87265FE00F00008034 /* AdichallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA29CC88265FE00F00008034 /* AdichallengeTests.swift */,
+				FA29CC8A265FE00F00008034 /* Info.plist */,
+			);
+			path = AdichallengeTests;
+			sourceTree = "<group>";
+		};
+		FA29CC902660CDCB00008034 /* UIModels */ = {
+			isa = PBXGroup;
+			children = (
+				FA29CC912660CDD400008034 /* DiscoverProductUIModel.swift */,
+			);
+			path = UIModels;
+			sourceTree = "<group>";
+		};
 		FA3D59B4265EFD3C00210BA6 = {
 			isa = PBXGroup;
 			children = (
 				FA3D59BF265EFD3C00210BA6 /* Adichallenge */,
+				FA29CC87265FE00F00008034 /* AdichallengeTests */,
 				FA3D59BE265EFD3C00210BA6 /* Products */,
 				FA29CC56265FA84400008034 /* Frameworks */,
 			);
@@ -130,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3D59BD265EFD3C00210BA6 /* Adichallenge.app */,
-				FA3D59D3265EFD3F00210BA6 /* AdichallengeTests.xctest */,
+				FA29CC86265FE00F00008034 /* AdichallengeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,19 +172,29 @@
 			path = Adichallenge;
 			sourceTree = "<group>";
 		};
-		FA3D59D6265EFD3F00210BA6 /* AdichallengeTests */ = {
-			isa = PBXGroup;
-			children = (
-				FA3D59D7265EFD3F00210BA6 /* AdichallengeTests.swift */,
-				FA3D59D9265EFD3F00210BA6 /* Info.plist */,
-			);
-			name = AdichallengeTests;
-			path = ../../../AdichallengeTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FA29CC85265FE00F00008034 /* AdichallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA29CC8D265FE00F00008034 /* Build configuration list for PBXNativeTarget "AdichallengeTests" */;
+			buildPhases = (
+				FA29CC82265FE00F00008034 /* Sources */,
+				FA29CC83265FE00F00008034 /* Frameworks */,
+				FA29CC84265FE00F00008034 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA29CC8C265FE00F00008034 /* PBXTargetDependency */,
+			);
+			name = AdichallengeTests;
+			packageProductDependencies = (
+			);
+			productName = AdichallengeTests;
+			productReference = FA29CC86265FE00F00008034 /* AdichallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FA3D59BC265EFD3C00210BA6 /* Adichallenge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA3D59E7265EFD3F00210BA6 /* Build configuration list for PBXNativeTarget "Adichallenge" */;
@@ -178,29 +212,12 @@
 				FA29CC3B265F951500008034 /* Kingfisher */,
 				FA29CC57265FA84400008034 /* RxWrapper */,
 				FA29CC5A265FD31700008034 /* PKHUD */,
+				FA52861A2660D64B00A326F6 /* Domain */,
+				FA52861C2660D64B00A326F6 /* Network */,
 			);
 			productName = Adichallenge;
 			productReference = FA3D59BD265EFD3C00210BA6 /* Adichallenge.app */;
 			productType = "com.apple.product-type.application";
-		};
-		FA3D59D2265EFD3F00210BA6 /* AdichallengeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA3D59EA265EFD3F00210BA6 /* Build configuration list for PBXNativeTarget "AdichallengeTests" */;
-			buildPhases = (
-				FA3D59CF265EFD3F00210BA6 /* Sources */,
-				FA29CC5F265FD70200008034 /* Swiftformat */,
-				FA3D59D0265EFD3F00210BA6 /* Frameworks */,
-				FA3D59D1265EFD3F00210BA6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA3D59D5265EFD3F00210BA6 /* PBXTargetDependency */,
-			);
-			name = AdichallengeTests;
-			productName = AdichallengeTests;
-			productReference = FA3D59D3265EFD3F00210BA6 /* AdichallengeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -211,12 +228,12 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					FA3D59BC265EFD3C00210BA6 = {
-						CreatedOnToolsVersion = 12.5;
-					};
-					FA3D59D2265EFD3F00210BA6 = {
+					FA29CC85265FE00F00008034 = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = FA3D59BC265EFD3C00210BA6;
+					};
+					FA3D59BC265EFD3C00210BA6 = {
+						CreatedOnToolsVersion = 12.5;
 					};
 				};
 			};
@@ -238,12 +255,19 @@
 			projectRoot = "";
 			targets = (
 				FA3D59BC265EFD3C00210BA6 /* Adichallenge */,
-				FA3D59D2265EFD3F00210BA6 /* AdichallengeTests */,
+				FA29CC85265FE00F00008034 /* AdichallengeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FA29CC84265FE00F00008034 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA3D59BB265EFD3C00210BA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,37 +277,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA3D59D1265EFD3F00210BA6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		FA29CC5F265FD70200008034 /* Swiftformat */ = {
-			isa = PBXShellScriptBuildPhase;
+/* Begin PBXSourcesBuildPhase section */
+		FA29CC82265FE00F00008034 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Swiftformat;
-			outputFileListPaths = (
-			);
-			outputPaths = (
+				FA29CC89265FE00F00008034 /* AdichallengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\nSDKROOT=macosx\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT/Adichallenge\" \\\n    --swiftversion 5 \\\n    --enable isEmpty \\\n    --disable trailingCommas \\\n    --disable blankLinesAroundMark \\\n    --disable unusedArguments \\\n    --disable wrap, wrapMultilineStatementBraces, wrapSwitchCases \\\n    --disable initCoderUnavailable \\\n    --disable numberFormatting \\\n    --disable sortedImports\n";
 		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
 		FA3D59B9265EFD3C00210BA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,25 +299,18 @@
 				FA3D59C1265EFD3C00210BA6 /* AppDelegate.swift in Sources */,
 				FA29CC52265FA3D100008034 /* DiscoverProductsViewController.swift in Sources */,
 				FA29CC6B265FDD4A00008034 /* DiscoverProductCell.swift in Sources */,
+				FA29CC922660CDD400008034 /* DiscoverProductUIModel.swift in Sources */,
 				FA29CC64265FDBAB00008034 /* UITableView+Extension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA3D59CF265EFD3F00210BA6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA3D59D8265EFD3F00210BA6 /* AdichallengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FA3D59D5265EFD3F00210BA6 /* PBXTargetDependency */ = {
+		FA29CC8C265FE00F00008034 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FA3D59BC265EFD3C00210BA6 /* Adichallenge */;
-			targetProxy = FA3D59D4265EFD3F00210BA6 /* PBXContainerItemProxy */;
+			targetProxy = FA29CC8B265FE00F00008034 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -329,6 +326,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FA29CC8E265FE00F00008034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TGUJLKRV49;
+				INFOPLIST_FILE = AdichallengeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Eironeia.AdichallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adichallenge.app/Adichallenge";
+			};
+			name = Debug;
+		};
+		FA29CC8F265FE00F00008034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TGUJLKRV49;
+				INFOPLIST_FILE = AdichallengeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Eironeia.AdichallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adichallenge.app/Adichallenge";
+			};
+			name = Release;
+		};
 		FA3D59E5265EFD3F00210BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -487,53 +526,18 @@
 			};
 			name = Release;
 		};
-		FA3D59EB265EFD3F00210BA6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TGUJLKRV49;
-				INFOPLIST_FILE = AdichallengeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = Eironeia.AdichallengeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adichallenge.app/Adichallenge";
-			};
-			name = Debug;
-		};
-		FA3D59EC265EFD3F00210BA6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TGUJLKRV49;
-				INFOPLIST_FILE = AdichallengeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = Eironeia.AdichallengeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adichallenge.app/Adichallenge";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FA29CC8D265FE00F00008034 /* Build configuration list for PBXNativeTarget "AdichallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA29CC8E265FE00F00008034 /* Debug */,
+				FA29CC8F265FE00F00008034 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FA3D59B8265EFD3C00210BA6 /* Build configuration list for PBXProject "Adichallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -548,15 +552,6 @@
 			buildConfigurations = (
 				FA3D59E8265EFD3F00210BA6 /* Debug */,
 				FA3D59E9265EFD3F00210BA6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA3D59EA265EFD3F00210BA6 /* Build configuration list for PBXNativeTarget "AdichallengeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA3D59EB265EFD3F00210BA6 /* Debug */,
-				FA3D59EC265EFD3F00210BA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -596,6 +591,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA29CC59265FD31700008034 /* XCRemoteSwiftPackageReference "PKHUD" */;
 			productName = PKHUD;
+		};
+		FA52861A2660D64B00A326F6 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		FA52861C2660D64B00A326F6 /* Network */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Network;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
