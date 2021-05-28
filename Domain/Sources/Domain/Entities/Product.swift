@@ -8,6 +8,22 @@ public struct Product: Codable {
     public let price: Double
     public let currency: String
 
+    public init(
+        id: String,
+        imageURL: String,
+        name: String,
+        description: String,
+        price: Double,
+        currency: String
+    ) {
+        self.id = id
+        self.imageURL = imageURL
+        self.name = name
+        self.description = description
+        self.price = price
+        self.currency = currency
+    }
+
     enum CodingKeys: String, CodingKey {
         case id
         case imageURL = "imgUrl"
