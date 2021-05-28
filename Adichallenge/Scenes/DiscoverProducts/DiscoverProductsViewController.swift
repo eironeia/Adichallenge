@@ -23,10 +23,6 @@ final class DiscoverProductsViewController: UITableViewController {
         super.viewDidLoad()
         setupUI()
         setupEvents()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         fetchProductsSubject.onNext(())
     }
 }
