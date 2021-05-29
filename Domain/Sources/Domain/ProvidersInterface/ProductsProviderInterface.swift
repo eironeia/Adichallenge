@@ -6,4 +6,5 @@ public protocol ProductsProviderInterface {
 
 public protocol ReviewsProviderInterface {
     func getReviews(productId: String, completion: @escaping (Result<[Review], Error>) -> Void)
+    func addReviews(reviewDTO: ReviewDTO, completion: @escaping (Result<Review, Error>) -> Void)
 }

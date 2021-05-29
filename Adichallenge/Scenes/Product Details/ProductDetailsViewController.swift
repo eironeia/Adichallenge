@@ -42,6 +42,8 @@ private extension ProductDetailsViewController {
             ReviewsCell.self,
             forCellReuseIdentifier: ReviewsCell.identifier
         )
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
     }
 
     func setupEvents() {
@@ -55,6 +57,14 @@ private extension ProductDetailsViewController {
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+
+        output
+            .isLoading
+            .asDriverOnErrorJustComplete()
+            .drive(onNext: { [weak self] isLoading in
+                self?.handle(isLoading: isLoading)
+            })
+            .disposed(by: disposeBag)
     }
 
     func handle(isLoading: Bool) {
@@ -62,7 +72,18 @@ private extension ProductDetailsViewController {
             ? HUD.show(.progress, onView: view)
             : HUD.hide()
     }
+
+    @objc func addButtonTapped() {
+        let viewModel = AddReviewViewModel(productId: "HI336", useCase: ReviewsUseCase(reviewsProvider: ReviewsProvider()))
+        let viewController = AddReviewViewController(viewModel: viewModel)
+        present(viewController, animated: true, completion: nil)
+    }
 }
+
+// TODO: DELETE!
+#warning("🚨")
+import Domain
+import Network
 
 // MARK: - Datasource
 

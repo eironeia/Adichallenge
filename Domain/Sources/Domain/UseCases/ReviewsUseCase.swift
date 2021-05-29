@@ -2,6 +2,7 @@ import Foundation
 
 public protocol ReviewsUseCaseInterface {
     func getReviews(productId: String, completion: @escaping (Result<[Review], Error>) -> Void)
+    func addReview(reviewDTO: ReviewDTO, completion: @escaping (Result<Review, Error>) -> Void)
 }
 
 public struct ReviewsUseCase: ReviewsUseCaseInterface {
@@ -19,4 +20,9 @@ public struct ReviewsUseCase: ReviewsUseCaseInterface {
         // TODO: Database persistance + fetching if there is no connection
         reviewsProvider.getReviews(productId: productId, completion: completion)
     }
+
+    public func addReview(reviewDTO: ReviewDTO, completion: @escaping (Result<Review, Error>) -> Void) {
+        reviewsProvider.addReviews(reviewDTO: reviewDTO, completion: completion)
+    }
+
 }

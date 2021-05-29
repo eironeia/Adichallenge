@@ -33,6 +33,8 @@
 		FABFF2AB26618E5D00403D9C /* ProductDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2AA26618E5D00403D9C /* ProductDetailsCell.swift */; };
 		FABFF2AD2662307000403D9C /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2AC2662307000403D9C /* ReviewsCell.swift */; };
 		FABFF2B0266232D500403D9C /* ReviewUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2AF266232D500403D9C /* ReviewUIModel.swift */; };
+		FABFF2B42662381B00403D9C /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2B32662381B00403D9C /* AddReviewViewController.swift */; };
+		FABFF2B626624CB900403D9C /* AddReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2B526624CB900403D9C /* AddReviewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		FABFF2AA26618E5D00403D9C /* ProductDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCell.swift; sourceTree = "<group>"; };
 		FABFF2AC2662307000403D9C /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		FABFF2AF266232D500403D9C /* ReviewUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUIModel.swift; sourceTree = "<group>"; };
+		FABFF2B32662381B00403D9C /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
+		FABFF2B526624CB900403D9C /* AddReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			children = (
 				FA29CC50265FA3C000008034 /* DiscoverProducts */,
 				FABFF2A026611F3F00403D9C /* Product Details */,
+				FABFF2B22662380900403D9C /* AddReview */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -252,6 +257,15 @@
 				FABFF2AC2662307000403D9C /* ReviewsCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FABFF2B22662380900403D9C /* AddReview */ = {
+			isa = PBXGroup;
+			children = (
+				FABFF2B526624CB900403D9C /* AddReviewViewModel.swift */,
+				FABFF2B32662381B00403D9C /* AddReviewViewController.swift */,
+			);
+			path = AddReview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,10 +423,12 @@
 				FABFF2A826618DD700403D9C /* ProductDetailsUIModel.swift in Sources */,
 				FABFF29F26611C6A00403D9C /* DiscoverProductsCoordinator.swift in Sources */,
 				FABFF2AB26618E5D00403D9C /* ProductDetailsCell.swift in Sources */,
+				FABFF2B42662381B00403D9C /* AddReviewViewController.swift in Sources */,
 				FABFF2B0266232D500403D9C /* ReviewUIModel.swift in Sources */,
 				FA29CC52265FA3D100008034 /* DiscoverProductsViewController.swift in Sources */,
 				FA29CC6B265FDD4A00008034 /* DiscoverProductCell.swift in Sources */,
 				FA29CC922660CDD400008034 /* DiscoverProductUIModel.swift in Sources */,
+				FABFF2B626624CB900403D9C /* AddReviewViewModel.swift in Sources */,
 				FA29CC64265FDBAB00008034 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

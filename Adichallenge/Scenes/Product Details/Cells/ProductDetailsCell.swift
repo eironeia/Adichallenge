@@ -26,12 +26,14 @@ final class ProductDetailsCell: UITableViewCell {
 
     private let productNameLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         // UI setup
         return label
     }()
 
     private let productDescriptionLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         // UI setup
         return label
     }()

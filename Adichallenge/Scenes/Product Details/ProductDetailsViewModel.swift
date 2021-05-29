@@ -17,15 +17,18 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
     }
 
     struct Output {
+        let isLoading: Observable<Bool>
         let sections: Observable<[Section]>
     }
 
     let product: Product
     let useCase: ReviewsUseCaseInterface
+    private let isLoadingSubject = PublishSubject<Bool>()
 
     func transform(input: Input) -> Output {
         let sections = input
             .showProduct
+            .startLoading(loadingSubject: isLoadingSubject)
             .flatMapLatest { _ -> Observable<[Review]> in
                 Observable.create { observer in
                     useCase.getReviews(productId: product.id) { result in
@@ -39,7 +42,6 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
                     return Disposables.create()
                 }
             }
-            .debug()
             .map { reviews in
                 reviews.map(ReviewUIModel.init(review:))
             }
@@ -49,7 +51,9 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
                     .reviews(reviewsUIModel)
                 ]
             }
+            .debug()
+            .stopLoading(loadingSubject: isLoadingSubject)
 
-        return .init(sections: sections)
+        return .init(isLoading: isLoadingSubject, sections: sections)
     }
 }

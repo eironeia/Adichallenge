@@ -29,13 +29,13 @@ final class DiscoverProductCell: UITableViewCell {
 
     private let productNameLabel: UILabel = {
         let label = UILabel()
-        // UI setup
+        label.numberOfLines = 0
         return label
     }()
 
     private let productDescriptionLabel: UILabel = {
         let label = UILabel()
-        // UI setup
+        label.numberOfLines = 0
         return label
     }()
 

@@ -11,6 +11,7 @@ final class ReviewsCell: UITableViewCell {
 
     private let reviewDescriptionLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         // UI setup
         return label
     }()
@@ -46,7 +47,7 @@ private extension ReviewsCell {
 
     func setupLayout() {
         contentView.addSubview(container)
-        container.fillSuperview(withEdges: .init(top: 4, left: 8, bottom: 4, right: 8))
+        container.fillSuperview(withEdges: .init(top: 8, left: 8, bottom: 8, right: 8))
         [reviewDescriptionLabel, reviewScoreLabel].forEach(container.addArrangedSubview)
     }
 }
