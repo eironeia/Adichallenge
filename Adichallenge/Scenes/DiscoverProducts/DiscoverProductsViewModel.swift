@@ -51,7 +51,6 @@ struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
             .do(onNext: onSelectedProduct)
             .mapToVoid()
 
-
         return .init(
             isLoading: isLoadingSubject,
             products: discoverProducts,

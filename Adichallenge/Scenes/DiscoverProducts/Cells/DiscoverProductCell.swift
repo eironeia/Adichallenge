@@ -2,7 +2,6 @@ import UIKit
 import Kingfisher
 
 final class DiscoverProductCell: UITableViewCell {
-
     private let placeholderImageName = "product-placeholder"
 
     private let container: UIStackView = {
@@ -28,22 +27,21 @@ final class DiscoverProductCell: UITableViewCell {
         return stackView
     }()
 
-
     private let productNameLabel: UILabel = {
         let label = UILabel()
-        //UI setup
+        // UI setup
         return label
     }()
 
     private let productDescriptionLabel: UILabel = {
         let label = UILabel()
-        //UI setup
+        // UI setup
         return label
     }()
 
     private let productPriceLabel: UILabel = {
         let label = UILabel()
-        //UI setup
+        // UI setup
         return label
     }()
 
@@ -74,7 +72,6 @@ private extension DiscoverProductCell {
         setupLayout()
     }
 
-
     func setupLayout() {
         contentView.addSubview(container)
         container.fillSuperview(withEdges: .init(top: 4, left: 8, bottom: 4, right: 8))
@@ -91,4 +88,3 @@ private extension DiscoverProductCell {
         )
     }
 }
-

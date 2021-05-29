@@ -8,7 +8,8 @@ let package = Package(
     products: [
         .library(
             name: "Network",
-            targets: ["Network"])
+            targets: ["Network"]
+        )
     ],
     dependencies: [
         .package(path: "../Domain"),
@@ -16,9 +17,11 @@ let package = Package(
     targets: [
         .target(
             name: "Network",
-            dependencies: ["Domain"]),
+            dependencies: ["Domain"]
+        ),
         .testTarget(
             name: "NetworkTests",
-            dependencies: ["Network"]),
+            dependencies: ["Network"]
+        ),
     ]
 )

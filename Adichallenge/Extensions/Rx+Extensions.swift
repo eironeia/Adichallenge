@@ -42,13 +42,13 @@ extension ObservableType {
 }
 
 extension ObservableType {
-    static func createFromResultCallback<E: Error>(_ fn: @escaping (@escaping (Result<Element, E>) -> Void) -> ()) -> Observable<Element> {
+    static func createFromResultCallback<E: Error>(_ fn: @escaping (@escaping (Result<Element, E>) -> Void) -> Void) -> Observable<Element> {
         return Observable.create { observer in
             fn { result in
                 switch result {
-                case .success(let value):
+                case let .success(value):
                     observer.onNext(value)
-                case .failure(let error):
+                case let .failure(error):
                     observer.onError(error)
                 }
             }

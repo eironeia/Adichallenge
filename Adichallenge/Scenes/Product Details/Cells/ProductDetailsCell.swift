@@ -24,22 +24,21 @@ final class ProductDetailsCell: UITableViewCell {
         return stackView
     }()
 
-
     private let productNameLabel: UILabel = {
         let label = UILabel()
-        //UI setup
+        // UI setup
         return label
     }()
 
     private let productDescriptionLabel: UILabel = {
         let label = UILabel()
-        //UI setup
+        // UI setup
         return label
     }()
 
     private let productPriceLabel: UILabel = {
         let label = UILabel()
-        //UI setup
+        // UI setup
         return label
     }()
 
@@ -86,4 +85,3 @@ private extension ProductDetailsCell {
             .isActive = true
     }
 }
-

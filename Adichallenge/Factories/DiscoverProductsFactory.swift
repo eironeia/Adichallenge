@@ -23,7 +23,9 @@ struct DiscoverProductsFactory: DiscoverProductsFactoryInterface {
     }
 
     func makeProductDetailsViewController(product: Product) -> UIViewController {
-        let viewModel = ProductDetailsViewModel(product: product)
+        let provider = ReviewsProvider()
+        let useCase = ReviewsUseCase(reviewsProvider: provider)
+        let viewModel = ProductDetailsViewModel(product: product, useCase: useCase)
         return ProductDetailsViewController(viewModel: viewModel)
     }
 }

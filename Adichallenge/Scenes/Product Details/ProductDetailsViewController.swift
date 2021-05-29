@@ -3,10 +3,6 @@ import RxSwift
 import RxCocoa
 import PKHUD
 
-final class ReviewsCell: UITableViewCell {
-
-}
-
 final class ProductDetailsViewController: UITableViewController {
     private var sectionsType: [ProductDetailsViewModel.Section] = []
     private let viewModel: ProductDetailsViewModelInterface
@@ -37,6 +33,7 @@ private extension ProductDetailsViewController {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .white
         tableView.alwaysBounceVertical = false
+        tableView.allowsSelection = false
         tableView.register(
             ProductDetailsCell.self,
             forCellReuseIdentifier: ProductDetailsCell.identifier
@@ -73,14 +70,14 @@ extension ProductDetailsViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         sectionsType.count
     }
-    
+
     override func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
         switch sectionsType[section] {
         case .details: return 1
-        case .reviews: return 1
+        case let .reviews(reviews): return reviews.count
         }
     }
 
@@ -93,16 +90,22 @@ extension ProductDetailsViewController {
             let cell = tableView.cell(as: ProductDetailsCell.self)
             cell.setup(uiModel: uiModel)
             return cell
-        case .reviews:
-            return UITableViewCell()
+        case let .reviews(reviews):
+            let uiModel = reviews[indexPath.row]
+            let cell = tableView.cell(as: ReviewsCell.self)
+            cell.setup(uiModel: uiModel)
+            return cell
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch sectionsType[section] {
+        case .details: return nil
+        case .reviews: return "Reviews"
         }
     }
 }
 
 // MARK: - Delegate
 
-extension ProductDetailsViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
-}
+extension ProductDetailsViewController {}

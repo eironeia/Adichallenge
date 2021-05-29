@@ -41,7 +41,4 @@ class ProductsUseCaseTests: XCTestCase {
     }
 
     // TODO: Test data contract
-    
 }
-
-

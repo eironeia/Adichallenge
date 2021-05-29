@@ -31,6 +31,8 @@
 		FABFF2A426618C3400403D9C /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2A326618C3400403D9C /* ProductDetailsViewModel.swift */; };
 		FABFF2A826618DD700403D9C /* ProductDetailsUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2A726618DD700403D9C /* ProductDetailsUIModel.swift */; };
 		FABFF2AB26618E5D00403D9C /* ProductDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2AA26618E5D00403D9C /* ProductDetailsCell.swift */; };
+		FABFF2AD2662307000403D9C /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2AC2662307000403D9C /* ReviewsCell.swift */; };
+		FABFF2B0266232D500403D9C /* ReviewUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF2AF266232D500403D9C /* ReviewUIModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		FABFF2A326618C3400403D9C /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
 		FABFF2A726618DD700403D9C /* ProductDetailsUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsUIModel.swift; sourceTree = "<group>"; };
 		FABFF2AA26618E5D00403D9C /* ProductDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsCell.swift; sourceTree = "<group>"; };
+		FABFF2AC2662307000403D9C /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
+		FABFF2AF266232D500403D9C /* ReviewUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUIModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,8 +230,8 @@
 			children = (
 				FABFF2A926618E4F00403D9C /* Cells */,
 				FABFF2A626618DCF00403D9C /* UIModels */,
-				FABFF2A126611FA800403D9C /* ProductDetailsViewController.swift */,
 				FABFF2A326618C3400403D9C /* ProductDetailsViewModel.swift */,
+				FABFF2A126611FA800403D9C /* ProductDetailsViewController.swift */,
 			);
 			path = "Product Details";
 			sourceTree = "<group>";
@@ -236,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				FABFF2A726618DD700403D9C /* ProductDetailsUIModel.swift */,
+				FABFF2AF266232D500403D9C /* ReviewUIModel.swift */,
 			);
 			path = UIModels;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				FABFF2AA26618E5D00403D9C /* ProductDetailsCell.swift */,
+				FABFF2AC2662307000403D9C /* ReviewsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 			buildConfigurationList = FA29CC8D265FE00F00008034 /* Build configuration list for PBXNativeTarget "AdichallengeTests" */;
 			buildPhases = (
 				FA29CC82265FE00F00008034 /* Sources */,
+				FABFF2AE266230F700403D9C /* Swiftformat */,
 				FA29CC83265FE00F00008034 /* Frameworks */,
 				FA29CC84265FE00F00008034 /* Resources */,
 			);
@@ -356,6 +363,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FABFF2AE266230F700403D9C /* Swiftformat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftformat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=macosx\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\" \\\n    --swiftversion 5 \\\n    --enable isEmpty \\\n    --disable trailingCommas \\\n    --disable blankLinesAroundMark \\\n    --disable unusedArguments \\\n    --disable wrap, wrapMultilineStatementBraces, wrapSwitchCases \\\n    --disable initCoderUnavailable \\\n    --disable numberFormatting \\\n    --disable sortedImports \\\n    --disable enumNamespaces \\\n    --disable extensionAccessControl --extensionacl on-extension\n \n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA29CC82265FE00F00008034 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -370,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA29CC68265FDD2900008034 /* UIView+Extension.swift in Sources */,
+				FABFF2AD2662307000403D9C /* ReviewsCell.swift in Sources */,
 				FA29CC6D265FDE6900008034 /* DiscoverProductsViewModel.swift in Sources */,
 				FA29CC62265FDA1800008034 /* Rx+Extensions.swift in Sources */,
 				FABFF2A226611FA800403D9C /* ProductDetailsViewController.swift in Sources */,
@@ -380,6 +409,7 @@
 				FABFF2A826618DD700403D9C /* ProductDetailsUIModel.swift in Sources */,
 				FABFF29F26611C6A00403D9C /* DiscoverProductsCoordinator.swift in Sources */,
 				FABFF2AB26618E5D00403D9C /* ProductDetailsCell.swift in Sources */,
+				FABFF2B0266232D500403D9C /* ReviewUIModel.swift in Sources */,
 				FA29CC52265FA3D100008034 /* DiscoverProductsViewController.swift in Sources */,
 				FA29CC6B265FDD4A00008034 /* DiscoverProductCell.swift in Sources */,
 				FA29CC922660CDD400008034 /* DiscoverProductUIModel.swift in Sources */,

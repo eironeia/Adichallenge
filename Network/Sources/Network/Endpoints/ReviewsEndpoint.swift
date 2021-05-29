@@ -1,11 +1,7 @@
 import Foundation
 
-public protocol EndpointInterface {
-    var urlRequest: URLRequest { get }
-}
-
-public enum ProductsEndpoint: EndpointInterface {
-    case products
+public enum ReviewsEndpoint: EndpointInterface {
+    case reviews(productId: String)
 
     public var urlRequest: URLRequest {
         var url = baseUrl
@@ -16,7 +12,7 @@ public enum ProductsEndpoint: EndpointInterface {
     }
 
     private var baseUrl: URL {
-        guard let url = URL(string: "http://localhost:3001/") else {
+        guard let url = URL(string: "http://localhost:3002/") else {
             preconditionFailure("Invalid URL used to create URL instance")
         }
         return url
@@ -24,13 +20,15 @@ public enum ProductsEndpoint: EndpointInterface {
 
     private var path: String {
         switch self {
-        case .products:
-            return "product"
+        case let .reviews(productId):
+            return "reviews/\(productId)"
         }
     }
 
     private var httpMethod: String {
-        return "GET"
+        switch self {
+        case .reviews:
+            return "GET"
+        }
     }
 }
-

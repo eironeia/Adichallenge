@@ -36,7 +36,7 @@ class DiscoverProductsViewModelTests: XCTestCase {
         selectedProductObserver = scheduler.createObserver(String.self)
         productsObserver = scheduler.createObserver([DiscoverProductUIModel].self)
         disposeBag = DisposeBag()
-        sut = DiscoverProductsViewModel(useCase: productsUseCase)
+        sut = DiscoverProductsViewModel(useCase: productsUseCase, onSelectedProduct: { _ in })
     }
 
     override func tearDown() {

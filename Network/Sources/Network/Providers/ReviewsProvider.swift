@@ -1,11 +1,11 @@
 import Foundation
 import Domain
 
-public struct ProductsProvider: APIInterface, ProductsProviderInterface {
+public struct ReviewsProvider: APIInterface, ReviewsProviderInterface {
     public init() {}
 
-    public func getProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
-        fetch(ProductsEndpoint.products) { (result: Result<[Product], Error>) in
+    public func getReviews(productId: String, completion: @escaping (Result<[Review], Error>) -> Void) {
+        fetch(ReviewsEndpoint.reviews(productId: productId)) { (result: Result<[Review], Error>) in
             switch result {
             case let .success(products):
                 completion(.success(products))
