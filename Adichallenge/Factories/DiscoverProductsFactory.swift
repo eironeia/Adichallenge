@@ -8,11 +8,11 @@ protocol DiscoverProductsFactoryInterface {
     ) -> UIViewController
     func makeProductDetailsViewController(
         product: Product,
-        onAddReview: @escaping (@escaping (Review) -> Void) -> Void
+        onAddReview: @escaping (@escaping () -> Void) -> Void
     ) -> UIViewController
     func makeAddReviewViewController(
         productId: String,
-        onReviewAdded: @escaping (Review) -> Void,
+        onReviewAdded: @escaping () -> Void,
         onCompletion: @escaping () -> Void
     ) -> UIViewController
 }
@@ -32,7 +32,7 @@ struct DiscoverProductsFactory: DiscoverProductsFactoryInterface {
 
     func makeProductDetailsViewController(
         product: Product,
-        onAddReview: @escaping (@escaping (Review) -> Void) -> Void
+        onAddReview: @escaping (@escaping () -> Void) -> Void
     ) -> UIViewController {
         let provider = ReviewsProvider()
         let useCase = ReviewsUseCase(reviewsProvider: provider)
@@ -42,7 +42,7 @@ struct DiscoverProductsFactory: DiscoverProductsFactoryInterface {
 
     func makeAddReviewViewController(
         productId: String,
-        onReviewAdded: @escaping (Review) -> Void,
+        onReviewAdded: @escaping () -> Void,
         onCompletion: @escaping () -> Void
     ) -> UIViewController {
         let provider = ReviewsProvider()

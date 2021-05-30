@@ -9,7 +9,7 @@ protocol AddReviewViewModelInterface {
 struct AddReviewViewModel: AddReviewViewModelInterface {
     let productId: String
     let useCase: ReviewsUseCaseInterface
-    let onReviewAdded: (Review) -> Void
+    let onReviewAdded: () -> Void
     let onCompletion: () -> Void
 
     private let isLoadingSubject = PublishSubject<Bool>()
@@ -40,7 +40,7 @@ struct AddReviewViewModel: AddReviewViewModelInterface {
                     return Disposables.create()
                 }
             }
-            .do(onNext: onReviewAdded)
+            .do(onNext: { _ in onReviewAdded() })
             .do(onNext: { _ in onCompletion() })
             .mapToVoid()
 

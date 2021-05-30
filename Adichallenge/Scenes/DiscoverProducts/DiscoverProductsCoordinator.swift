@@ -21,7 +21,7 @@ struct DiscoverProductsCoordinator {
         presenter.pushViewController(viewController, animated: true)
     }
 
-    func navigateToAddReview(productId: String, onReviewAdded: @escaping (Review) -> Void) {
+    func navigateToAddReview(productId: String, onReviewAdded: @escaping () -> Void) {
         let viewController = scenesFactory
             .makeAddReviewViewController(
                 productId: productId,

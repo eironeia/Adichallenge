@@ -7,7 +7,6 @@ protocol ProductDetailsViewModelInterface {
 }
 
 struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
-    typealias OnReviewAddedClosure = (Review) -> Void
     enum Section {
         case details(uiModel: ProductDetailsUIModel)
         case reviews([ReviewUIModel])
@@ -26,13 +25,14 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
 
     let product: Product
     let useCase: ReviewsUseCaseInterface
-    let onAddReview: (@escaping OnReviewAddedClosure) -> Void
+    let onAddReview: (@escaping () -> Void) -> Void
     private let isLoadingSubject = PublishSubject<Bool>()
-
+    private let fetchReviews = PublishSubject<Void>()
+    
     init(
         product: Product,
         useCase: ReviewsUseCaseInterface,
-        onAddReview: @escaping (@escaping (Review) -> Void) -> Void
+        onAddReview: @escaping (@escaping () -> Void) -> Void
     ) {
         self.product = product
         self.useCase = useCase
@@ -40,8 +40,8 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
     }
 
     func transform(input: Input) -> Output {
-        let sections = input
-            .showProduct
+        let sections = Observable
+            .merge(input.showProduct, fetchReviews)
             .startLoading(loadingSubject: isLoadingSubject)
             .flatMapLatest(getReviews)
             .map { $0.map(ReviewUIModel.init(review:)) }
@@ -53,7 +53,7 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
 
         let addReview = input
             .addReview
-            .do(onNext: { _ in onAddReview(reviewAdded(review:)) })
+            .do(onNext: { _ in onAddReview(reviewAdded) })
 
         return .init(isLoading: isLoadingSubject, sections: sections, idle: addReview)
     }
@@ -74,7 +74,7 @@ private extension ProductDetailsViewModel {
         }
     }
 
-    func reviewAdded(review: Review) {
-        print("✍🏻", review)
+    func reviewAdded() {
+        fetchReviews.onNext(())
     }
 }
