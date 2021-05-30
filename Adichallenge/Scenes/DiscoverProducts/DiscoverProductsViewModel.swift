@@ -12,6 +12,7 @@ struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
     struct Input {
         let fetchProducts: Observable<Void>
         let selectedProduct: Observable<String>
+        let filterProducts: Observable<String?>
     }
 
     struct Output {
@@ -51,9 +52,24 @@ struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
             .do(onNext: onSelectedProduct)
             .mapToVoid()
 
+        let filterProducts = input
+            .filterProducts
+            .withLatestFrom(products) { searchText, products -> [Product] in
+                if let text = searchText, !text.isEmpty {
+                    return products.filter { $0.description.lowercased().contains(text.lowercased()) }
+                } else {
+                    return products
+                }
+            }
+            .map { products in
+                products.map(DiscoverProductUIModel.init(product:))
+            }
+
+
+
         return .init(
             isLoading: isLoadingSubject,
-            products: discoverProducts,
+            products: Observable.merge(discoverProducts, filterProducts),
             idle: selectedProduct
         )
     }

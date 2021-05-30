@@ -8,7 +8,11 @@ final class DiscoverProductsViewController: UITableViewController {
     private let viewModel: DiscoverProductsViewModelInterface
     private let fetchProductsSubject = PublishSubject<Void>()
     private let selectedProductSubject = PublishSubject<String>()
+    private let filterProductsSubject = PublishSubject<String?>()
     private lazy var disposeBag = DisposeBag()
+
+    private lazy var searchBar = UISearchBar()
+
 
     init(viewModel: DiscoverProductsViewModelInterface) {
         self.viewModel = viewModel
@@ -43,6 +47,14 @@ private extension DiscoverProductsViewController {
             action: #selector(handleRefresh),
             for: .valueChanged
         )
+
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = " Search..."
+        searchBar.sizeToFit()
+        searchBar.isTranslucent = false
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
     }
 
     func setupEvents() {
@@ -50,7 +62,8 @@ private extension DiscoverProductsViewController {
             input:
             .init(
                 fetchProducts: fetchProductsSubject,
-                selectedProduct: selectedProductSubject
+                selectedProduct: selectedProductSubject,
+                filterProducts: filterProductsSubject
             )
         )
 
@@ -123,5 +136,20 @@ extension DiscoverProductsViewController {
     func handleRefresh() {
         tableView.refreshControl?.endRefreshing()
         fetchProductsSubject.onNext(())
+    }
+
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
+}
+
+
+extension DiscoverProductsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterProductsSubject.onNext(searchBar.text)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
