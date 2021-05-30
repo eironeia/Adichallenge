@@ -34,7 +34,10 @@ struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
                 Observable.createFromResultCallback(useCase.getProducts)
             }
             .do(onNext: products.onNext(_:))
-            .do(onError: { error in assertionFailure(error.localizedDescription) })
+            .do(onError: { error in
+                // TODO: Monitoring
+                assertionFailure(error.localizedDescription)
+            })
             .map { products in
                 products.map(DiscoverProductUIModel.init(product:))
             }
@@ -64,8 +67,6 @@ struct DiscoverProductsViewModel: DiscoverProductsViewModelInterface {
             .map { products in
                 products.map(DiscoverProductUIModel.init(product:))
             }
-
-
 
         return .init(
             isLoading: isLoadingSubject,

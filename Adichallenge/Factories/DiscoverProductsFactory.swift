@@ -22,7 +22,7 @@ struct DiscoverProductsFactory: DiscoverProductsFactoryInterface {
         onSelectedProduct: @escaping (Product) -> Void
     ) -> UIViewController {
         let provider = ProductsProvider()
-        let useCase = ProductsUseCase(productsProvider: provider)
+        let useCase = ProductsUseCase(productsProvider: provider, productsDatabase: LocalDatabase.shared)
         let viewModel = DiscoverProductsViewModel(
             useCase: useCase,
             onSelectedProduct: onSelectedProduct

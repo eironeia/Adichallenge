@@ -1,9 +1,5 @@
 import UIKit
 
-// TODO: Remove
-import Domain
-import Network
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
