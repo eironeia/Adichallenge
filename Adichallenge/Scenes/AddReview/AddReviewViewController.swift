@@ -11,12 +11,13 @@ final class AddReviewViewController: UIViewController {
         return label
     }()
 
-    private let reviewTextfield: UITextField = {
+    private lazy var reviewTextfield: UITextField = {
         let textField = UITextField()
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 4
         textField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
+        textField.delegate = self
 
         textField.placeholder = "Write your review here"
         return textField
@@ -152,5 +153,11 @@ private extension AddReviewViewController {
         // TODO: Show error if field is empty
         guard let text = reviewTextfield.text else { return }
         addReviewButtonSubject.onNext((text: text, score: Double(scoreSlider.value)))
+    }
+}
+
+extension AddReviewViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

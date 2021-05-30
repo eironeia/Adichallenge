@@ -2,6 +2,11 @@ import UIKit
 
 final class ProductDetailsCell: UITableViewCell {
     private let placeholderImageName = "product-placeholder"
+    private let numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 0
+        return numberFormatter
+    }()
 
     private let container: UIStackView = {
         let stackView = UIStackView()
@@ -27,20 +32,20 @@ final class ProductDetailsCell: UITableViewCell {
     private let productNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        // UI setup
+        label.font = .systemFont(ofSize: 24, weight: .bold)
         return label
     }()
 
     private let productDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        // UI setup
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         return label
     }()
 
     private let productPriceLabel: UILabel = {
         let label = UILabel()
-        // UI setup
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
 
@@ -61,7 +66,9 @@ final class ProductDetailsCell: UITableViewCell {
         )
         productNameLabel.text = uiModel.name
         productDescriptionLabel.text = uiModel.description
-        productPriceLabel.text = "\(uiModel.price)\(uiModel.currency)"
+        let number = NSNumber(value: uiModel.price)
+        let formattedValue = numberFormatter.string(from: number) ?? "-"
+        productPriceLabel.text = "\(formattedValue)\(uiModel.currency)"
     }
 }
 

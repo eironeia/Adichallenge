@@ -3,6 +3,11 @@ import Kingfisher
 
 final class DiscoverProductCell: UITableViewCell {
     private let placeholderImageName = "product-placeholder"
+    private let numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 0
+        return numberFormatter
+    }()
 
     private let container: UIStackView = {
         let stackView = UIStackView()
@@ -30,18 +35,20 @@ final class DiscoverProductCell: UITableViewCell {
     private let productNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 24, weight: .bold)
         return label
     }()
 
     private let productDescriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         return label
     }()
 
     private let productPriceLabel: UILabel = {
         let label = UILabel()
-        // UI setup
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
 
@@ -63,7 +70,9 @@ final class DiscoverProductCell: UITableViewCell {
         productNameLabel.text = uiModel.name
         productDescriptionLabel.text = uiModel.description
         // 👇🏼 This should be adapted based on currency position
-        productPriceLabel.text = "\(uiModel.price)\(uiModel.currency)"
+        let number = NSNumber(value: uiModel.price)
+        let formattedValue = numberFormatter.string(from: number) ?? "-"
+        productPriceLabel.text = "\(formattedValue)\(uiModel.currency)"
     }
 }
 

@@ -24,6 +24,12 @@ final class ReviewsCell: UITableViewCell {
         return label
     }()
 
+    private let numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 0
+        return numberFormatter
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -36,7 +42,9 @@ final class ReviewsCell: UITableViewCell {
 
     func setup(uiModel: ReviewUIModel) {
         reviewDescriptionLabel.text = uiModel.text
-        reviewScoreLabel.text = "\(uiModel.rating)"
+        let number = NSNumber(value: uiModel.rating)
+        let formattedValue = numberFormatter.string(from: number) ?? "-"
+        reviewScoreLabel.text = "\(formattedValue)⭐️"
     }
 }
 
