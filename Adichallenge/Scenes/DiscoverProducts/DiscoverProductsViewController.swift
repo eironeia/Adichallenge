@@ -77,6 +77,12 @@ private extension DiscoverProductsViewController {
 
         output
             .products
+            .do(onError: { [weak self] _ in
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Oops!", message: "Something went wrong, try again later", preferredStyle: .alert)
+                    self?.present(alert, animated: true, completion: nil)
+                }
+            })
             .asDriverOnErrorJustComplete()
             .drive(onNext: { [weak self] products in
                 self?.handle(discoverProducts: products)

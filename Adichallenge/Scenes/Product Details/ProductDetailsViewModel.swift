@@ -44,11 +44,25 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
             .merge(input.showProduct, fetchReviews)
             .startLoading(loadingSubject: isLoadingSubject)
             .flatMapLatest(getReviews)
+            .materialize()
+            .compactMap { event -> [Review]? in
+                switch event {
+                case .next:
+                    return event.element
+                case let .error(error):
+                    // TODO: Monitoring tool
+                    debugPrint(error.localizedDescription)
+                    return []
+                default:
+                    return event.element
+                }
+            }
             .map { $0.map(ReviewUIModel.init(review:)) }
             .map { reviewsUIModel -> [Section] in
                 [.details(uiModel: .init(product: product)),
                  .reviews(reviewsUIModel)]
             }
+
             .stopLoading(loadingSubject: isLoadingSubject)
 
         let addReview = input

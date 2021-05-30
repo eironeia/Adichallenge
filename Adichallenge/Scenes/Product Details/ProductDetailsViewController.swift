@@ -57,6 +57,13 @@ private extension ProductDetailsViewController {
 
         output
             .sections
+            .do(onError: { [weak self] _ in
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Oops!", message: "Something went wrong, try again later", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                    self?.present(alert, animated: true, completion: nil)
+                }
+            })
             .asDriverOnErrorJustComplete()
             .drive(onNext: { [weak self] sections in
                 self?.sectionsType = sections

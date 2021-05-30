@@ -15,7 +15,9 @@ struct DiscoverProductsCoordinator {
         let viewController = scenesFactory.makeProductDetailsViewController(
             product: product,
             onAddReview: { onReviewAdded in
-                navigateToAddReview(productId: product.id, onReviewAdded: onReviewAdded)
+                DispatchQueue.main.async {
+                    navigateToAddReview(productId: product.id, onReviewAdded: onReviewAdded)
+                }
             }
         )
         presenter.pushViewController(viewController, animated: true)
