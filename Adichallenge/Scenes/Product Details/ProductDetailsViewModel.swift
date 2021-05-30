@@ -28,7 +28,7 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
     let onAddReview: (@escaping () -> Void) -> Void
     private let isLoadingSubject = PublishSubject<Bool>()
     private let fetchReviews = PublishSubject<Void>()
-    
+
     init(
         product: Product,
         useCase: ReviewsUseCaseInterface,

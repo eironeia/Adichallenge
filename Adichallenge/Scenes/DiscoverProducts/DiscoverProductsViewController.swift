@@ -13,7 +13,6 @@ final class DiscoverProductsViewController: UITableViewController {
 
     private lazy var searchBar = UISearchBar()
 
-
     init(viewModel: DiscoverProductsViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -148,7 +147,6 @@ extension DiscoverProductsViewController {
         searchBar.resignFirstResponder()
     }
 }
-
 
 extension DiscoverProductsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

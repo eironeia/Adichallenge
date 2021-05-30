@@ -111,8 +111,9 @@ private extension DiscoverProductsViewModelTests {
 
     func createInput(
         fetchProducts: Observable<Void> = .empty(),
-        selectedProduct: Observable<String> = .empty()
+        selectedProduct: Observable<String> = .empty(),
+        filterProducts: Observable<String?> = .empty()
     ) -> DiscoverProductsViewModel.Input {
-        .init(fetchProducts: fetchProducts, selectedProduct: selectedProduct)
+        .init(fetchProducts: fetchProducts, selectedProduct: selectedProduct, filterProducts: filterProducts)
     }
 }

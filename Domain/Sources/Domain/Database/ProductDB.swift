@@ -9,12 +9,12 @@ struct ProductDB: Codable {
     let currency: String
 
     init(product: Product) {
-        self.id = product.id
-        self.imageURL = product.imageURL
-        self.name = product.name
-        self.description = product.description
-        self.price = product.price
-        self.currency = product.currency
+        id = product.id
+        imageURL = product.imageURL
+        name = product.name
+        description = product.description
+        price = product.price
+        currency = product.currency
     }
 
     enum CodingKeys: String, CodingKey {
