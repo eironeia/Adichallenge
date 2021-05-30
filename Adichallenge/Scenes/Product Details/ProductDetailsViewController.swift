@@ -7,6 +7,7 @@ final class ProductDetailsViewController: UITableViewController {
     private var sectionsType: [ProductDetailsViewModel.Section] = []
     private let viewModel: ProductDetailsViewModelInterface
     private let showProductSubject = PublishSubject<Void>()
+    private let addReviewSubject = PublishSubject<Void>()
     private lazy var disposeBag = DisposeBag()
 
     init(viewModel: ProductDetailsViewModelInterface) {
@@ -47,7 +48,12 @@ private extension ProductDetailsViewController {
     }
 
     func setupEvents() {
-        let output = viewModel.transform(input: .init(showProduct: showProductSubject))
+        let output = viewModel.transform(
+            input: .init(
+                showProduct: showProductSubject,
+                addReview: addReviewSubject
+            )
+        )
 
         output
             .sections
@@ -65,6 +71,12 @@ private extension ProductDetailsViewController {
                 self?.handle(isLoading: isLoading)
             })
             .disposed(by: disposeBag)
+
+        output
+            .idle
+            .asDriverOnErrorJustComplete()
+            .drive()
+            .disposed(by: disposeBag)
     }
 
     func handle(isLoading: Bool) {
@@ -74,16 +86,9 @@ private extension ProductDetailsViewController {
     }
 
     @objc func addButtonTapped() {
-        let viewModel = AddReviewViewModel(productId: "HI336", useCase: ReviewsUseCase(reviewsProvider: ReviewsProvider()))
-        let viewController = AddReviewViewController(viewModel: viewModel)
-        present(viewController, animated: true, completion: nil)
+        addReviewSubject.onNext(())
     }
 }
-
-// TODO: DELETE!
-#warning("🚨")
-import Domain
-import Network
 
 // MARK: - Datasource
 
