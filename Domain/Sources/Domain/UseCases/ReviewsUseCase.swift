@@ -24,5 +24,4 @@ public struct ReviewsUseCase: ReviewsUseCaseInterface {
     public func addReview(reviewDTO: ReviewDTO, completion: @escaping (Result<Review, Error>) -> Void) {
         reviewsProvider.addReviews(reviewDTO: reviewDTO, completion: completion)
     }
-
 }

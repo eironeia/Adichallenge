@@ -33,7 +33,6 @@ public enum ReviewsEndpoint: EndpointInterface {
         }
     }
 
-
     private var path: String {
         switch self {
         case let .reviews(productId):

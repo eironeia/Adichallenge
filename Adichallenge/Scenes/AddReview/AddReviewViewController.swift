@@ -16,7 +16,7 @@ final class AddReviewViewController: UIViewController {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 4
-        textField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
+        textField.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0)
 
         textField.placeholder = "Write your review here"
         return textField
@@ -42,7 +42,7 @@ final class AddReviewViewController: UIViewController {
     private let addReviewButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add review", for: .normal)
-        button.addTarget(self, action:#selector(buttonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         button.layer.cornerRadius = 4
         button.backgroundColor = .black
         button.titleLabel?.textColor = .white
@@ -120,7 +120,6 @@ private extension AddReviewViewController {
     }
 
     func setupEvents() {
-
         let output = viewModel.transform(input: .init(addReview: addReviewButtonSubject))
 
         output

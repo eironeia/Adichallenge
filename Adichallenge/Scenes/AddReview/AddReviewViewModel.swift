@@ -26,7 +26,7 @@ struct AddReviewViewModel: AddReviewViewModelInterface {
     func transform(input: Input) -> Output {
         let addReview = input
             .addReview
-            .flatMapLatest { (text, score) -> Observable<Review> in
+            .flatMapLatest { text, score -> Observable<Review> in
                 Observable.create { observer in
                     let dto = ReviewDTO(productId: productId, locale: "en-US", rating: score, text: text)
                     useCase.addReview(reviewDTO: dto) { result in
@@ -47,4 +47,3 @@ struct AddReviewViewModel: AddReviewViewModelInterface {
         return .init(isLoading: .empty(), idle: addReview)
     }
 }
-

@@ -50,7 +50,7 @@ struct ProductDetailsViewModel: ProductDetailsViewModelInterface {
                  .reviews(reviewsUIModel)]
             }
             .stopLoading(loadingSubject: isLoadingSubject)
-        
+
         let addReview = input
             .addReview
             .do(onNext: { _ in onAddReview(reviewAdded(review:)) })
@@ -78,4 +78,3 @@ private extension ProductDetailsViewModel {
         print("✍🏻", review)
     }
 }
-

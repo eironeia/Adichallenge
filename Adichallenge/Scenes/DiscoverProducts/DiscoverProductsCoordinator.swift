@@ -12,7 +12,6 @@ struct DiscoverProductsCoordinator {
     }
 
     func navigateToSelectedProduct(product: Product) {
-
         let viewController = scenesFactory.makeProductDetailsViewController(
             product: product,
             onAddReview: { onReviewAdded in
