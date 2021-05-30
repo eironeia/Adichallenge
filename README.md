@@ -69,3 +69,11 @@ I have introduced tests mostly for one of the most complext viewModels for the p
 Would be convinient to test the data contracts in order to make sure that we are on track with backenders.
 
 Definitely, I would love to introduce some snapshot testing or UI testing!
+
+## Snapshots
+
+<img width="300" alt="Screenshot 2021-05-04 at 11 28 23" src="https://user-images.githubusercontent.com/12100457/120098797-2b141d80-c138-11eb-8e7c-4e7a1eacd763.png">
+<img width="300" alt="Screenshot 2021-05-04 at 11 28 23" src="https://user-images.githubusercontent.com/12100457/120098799-2d767780-c138-11eb-9a2c-ca63c0d55fa8.png">
+<img width="300" alt="Screenshot 2021-05-04 at 11 28 23" src="https://user-images.githubusercontent.com/12100457/120098800-2ea7a480-c138-11eb-9819-bd337c85c8fe.png">
+<img width="300" alt="Screenshot 2021-05-04 at 11 28 23" src="https://user-images.githubusercontent.com/12100457/120098801-2fd8d180-c138-11eb-9329-a253c5c1fe4c.png">
+
